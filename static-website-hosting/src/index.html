@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Website on AWS S3 & CloudFront</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚀 Static Website Hosting on AWS S3 & CloudFront</h1>
+        <p>A step-by-step guide to deploying static websites on AWS</p>
+    </header>
+    <main>
+        <section class="theory">
+            <h2>Understanding S3 & CloudFront</h2>
+            <p><strong>Amazon S3</strong> (Simple Storage Service) is an object storage service that allows you to store static files (HTML, CSS, JavaScript, images, etc.). When you enable static website hosting on S3, it serves your files via an HTTP endpoint.</p>
+            <p><strong>Amazon CloudFront</strong> is a Content Delivery Network (CDN) that distributes your website across multiple AWS edge locations, improving speed and performance by serving content from the closest location to the user.</p>
+        </section>
+        
+        <section class="steps">
+            <h2>Implementation Steps</h2>
+            <ol>
+                <li>Create IAM User & Role.</li>
+                <li>Create an S3 Bucket & Upload Files.</li>
+                <li>Configure S3 for Static Website Hosting.</li>
+                <li>Set Up a CloudFront Distribution.</li>
+                <li>Test the Website.</li>
+            </ol>
+            <a href="https://github.com/your-repo/aws-s3-cloudfront-static-site" target="_blank" class="github-btn">View Complete Guide on GitHub</a>
+        </section>
+
+        <button onclick="showMessage()">🔍 Click to Learn More</button>
+        <p id="message"></p>
+    </main>
+    <footer>
+        <p>Built with ❤️ using AWS | Hosted on S3 | Distributed via CloudFront</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
