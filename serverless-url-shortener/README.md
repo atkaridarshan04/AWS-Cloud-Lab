@@ -42,6 +42,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
     ![iam](./images/iam.png)
 6. Click **Create User** and **log in** with this IAM user to continue.
 
+---
+
 ### Step 2: Create a DynamoDB Table
 1. Navigate to **DynamoDB Console** → **Tables** → **Create Table**.
 2. Enter **Table Name**: `ShortenedURLs`.
@@ -49,6 +51,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
     ![db-1](./images/db-1.png)
 4. Leave other settings as default and click **Create Table**.
     ![db-2](./images/db-2.png)
+
+---
 
 ### Step 3: Create an IAM Role for Lambda to Access DynamoDB
 1. Navigate to **IAM Console** → **Roles** → **Create Role**.
@@ -61,6 +65,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
     ![role-3](./images/role-3.png)
 6. Click **Create Role**.
     ![role-4](./images/role-4.png)
+
+---
 
 ### Step 4: Create the Backend (Lambda Functions)
 #### 4.1 Create URL Shortening Lambda Function
@@ -137,6 +143,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
 3. Deploy the function.
     ![lam-6](./images/lam-6.png)
 
+---
+
 ### Step 5: Create API Gateway
 1. Navigate to **API Gateway Console** → **Create API** → **HTTP API**.
 2. Add Integrations:
@@ -165,6 +173,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
 2. Also Upate it the `index.html`
     ![html](./images/html.png)
 
+---
+
 ### Step 6: Configure CloudWatch Logging for API Gateway
 1. Navigate to **CloudWatch Console** → **Log Groups** → **Create Log Group**.
     ![log-1](./images/log-1.png)
@@ -180,6 +190,8 @@ This project builds a serverless URL shortener using AWS services. Instead of us
     ![log-6](./images/log-6.png)
 7. Enter the copied ARN as log destination, and save changes.
     ![log-7](./images/log-7.png)
+
+---
 
 ### Step 7: Deploy Frontend on S3
 1. Navigate to **S3 Console** → **Create Bucket**.
@@ -207,7 +219,11 @@ This project builds a serverless URL shortener using AWS services. Instead of us
     ![s3-1](./images/s3-5.png)
     ![s3-1](./images/s3-6.png)
 
-#### **Copy the S3 Bucket Website Endpoint**
+    #### **Copy the S3 Bucket Website Endpoint**
+
+> Note: Instead of using S3 for static website hosting, we can also serve the frontend using Amazon CloudFront with an S3 origin. This approach enhances security by keeping the bucket private and restricting access through an OAC (Origin Access Control). We will then use the CloudFront CDN endpoint for serving the frontend efficiently.
+
+---
 
 ### Step 8:Enable Cors Policy
 Navigate to API Gateway -> API -> Select API Gateway -> CORS configure CORS to allow requests from your frontend domain.
@@ -216,6 +232,8 @@ Navigate to API Gateway -> API -> Select API Gateway -> CORS configure CORS to a
 - And Access-Control-Allow-Header to 'content-type'
 - Click Save
     ![cors](./images/cors.png)
+
+---
 
 ### Step 9: Test Everything
 - Open **S3 website URL** → Enter a long URL → Click Shorten.
@@ -228,7 +246,7 @@ Navigate to API Gateway -> API -> Select API Gateway -> CORS configure CORS to a
 - GO to **CLoudWatch -> Live Tail** and select the log group
     ![final-2](./images/final-2.png)
 
+---
 
 ## Cleanup
 - Delete API Gateway, Lambda functions, DynamoDB table, S3 bucket, CloudWatch log group, and IAM user.
-
