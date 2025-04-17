@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 590183956795.dkr.ecr.eu-north-1.amazonaws.com
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t demo-app ./demo-app
+      - docker tag demo-app:latest 590183956795.dkr.ecr.eu-north-1.amazonaws.com/container-orchestration-repo
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push 590183956795.dkr.ecr.eu-north-1.amazonaws.com/container-orchestration-repo:latest
+      - echo Writing image definitions...
+      - printf '[{"name":"app-container","imageUri":"590183956795.dkr.ecr.eu-north-1.amazonaws.com/container-orchestration-repo:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files: imagedefinitions.json

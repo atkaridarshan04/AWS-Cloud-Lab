@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region>.amazonaws.com
+  build:
+    commands:
+      - echo Building Docker image...
+      - docker build -t react-app ./react-app
+      - docker tag react-app:latest <account-id>.dkr.ecr.<region>.amazonaws.com/react-app-repo:latest
+  post_build:
+    commands:
+      - echo Pushing Docker image...
+      - docker push <account-id>.dkr.ecr.<region>.amazonaws.com/react-app-repo:latest
+      - echo Writing image definitions...
+      - printf '[{"name":"react-container","imageUri":"<account-id>.dkr.ecr.<region>.amazonaws.com/react-app-repo:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files: imagedefinitions.json
