@@ -1,4 +1,4 @@
-# EKS Application Deployment with ALB
+# Kubernetes Application Deployment on EKS with Serverless Fargate and ALB
 
 ## Overview
 This project demonstrates how to deploy an application on AWS EKS using Application Load Balancer (ALB) for managing traffic and AWS Fargate for running containers without managing servers. Instead of manually provisioning and maintaining worker nodes, we use Fargate as a serverless compute engine to automate scaling and resource allocation. ALB ensures efficient routing and secure access, while IAM roles, OIDC authentication, and Kubernetes ingress rules provide additional security and access control.
