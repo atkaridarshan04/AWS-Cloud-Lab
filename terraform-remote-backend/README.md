@@ -1,7 +1,6 @@
-# Terraform Remote Backend with AWS S3 & DynamoDB
+# Terraform Remote Backend Setup with S3 & DynamoDB for State Management
 
-This project demonstrates how to set up a **remote backend** for Terraform using **Amazon S3** and **DynamoDB**. It separates the infrastructure for state storage from your main IaC projects, allowing safe, scalable, and collaborative Terraform usage.
-
+This project demonstrates how to implement a robust and scalable Terraform remote backend using Amazon S3 for state file storage and DynamoDB for state locking and consistency control. By configuring a remote backend, teams can safely collaborate on infrastructure code, avoid state conflicts, and maintain centralized versioning of Terraform state.
 
 ## 🚀 What This Project Does
 
@@ -17,7 +16,7 @@ This project demonstrates how to set up a **remote backend** for Terraform using
 Terraform stores information about your deployed infrastructure in a state file. Using a remote backend:
 - Keeps the state safe and versioned
 - Enables collaboration (CI/CD or team)
-- Locks the state to prevent corruption during simultaneous runs
+- Ensures state locking to prevent race conditions during concurrent executions
 - Allows easier rollback and audit
 
 
