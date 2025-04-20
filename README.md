@@ -9,8 +9,8 @@ This repository is organized into modular projects, each addressing a specific A
 |--------|-------------|
 | [`custom-vpc-with-ec2-autoscaling`](./custom-vpc-with-ec2-autoscaling) | Builds a production-grade VPC with **public/private subnets**, **NAT Gateway**, and **EC2 Auto Scaling** and **Application Load Balancer**  |
 | [`ecs-cicd-automation`](./ecs-cicd-automation) | Automates the deployment of a containerized application using **Amazon ECS Fargate**, **CodePipeline**, and **CodeBuild** |
-| [`eks-app-deployment`](./eks-app-deployment) | Deploys Kubernetes workloads with **Amazon EKS**, showcasing high availability, scaling, and cluster management |
-| [`serverless-url-shortener`](./serverless-url-shortener) | Implements a serverless URL shortener using **AWS Lambda**, **API Gateway**, **DynamoDB**, and **IAM** |
+| [`eks-fargate-deployment`](./eks-fargate-deployment) | Deploys Kubernetes workloads with **Amazon EKS**, **Severless Farget** and **AWS ALB** showcasing high availability, scaling, and cluster management |
+| [`serverless-url-shortener`](./serverless-url-shortener) | Implements a serverless URL shortener using **AWS Lambda**, **API Gateway**, **DynamoDB**, **S3**, **IAM**  and **CloudWatch** |
 | [`static-website-hosting`](./static-website-hosting) | Demonstrates static website hosting with **Amazon S3** and **CloudFront** for global content delivery |
 | [`terraform-remote-backend`](./terraform-remote-backend) | Sets up a remote backend using **S3** and **DynamoDB** for Terraform state management and locking |
 
