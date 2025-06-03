@@ -6,6 +6,24 @@ This project demonstrates how to deploy an application on AWS EKS using Applicat
 ## Architecture
 ![eks-farget-alb-architecture](./images/eks-farget-alb-architecture.png)
 
+Got it! Here's a more concise **How It Works** section:
+
+---
+
+## How It Works
+
+1. **EKS with Fargate**: A serverless Kubernetes cluster is created where pods run on Fargate, removing the need to manage EC2 nodes.
+
+2. **App Deployment**: The 2048 game app is deployed to a specific namespace (`game-2048`) that’s linked to a Fargate profile.
+
+3. **OIDC & IAM**: An IAM role is created and linked via OIDC to securely allow the ALB Ingress Controller to manage AWS resources.
+
+4. **ALB Ingress Controller**: The controller watches for Ingress resources and provisions an ALB to route traffic to the app.
+
+5. **Access via ALB**: The application becomes accessible through the ALB’s DNS endpoint, with optional custom domain support.
+
+
+
 ## Prerequisites
 
 Ensure the following tools are installed and configured:
